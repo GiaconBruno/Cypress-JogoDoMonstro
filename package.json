@@ -1,0 +1,23 @@
+{
+  "name": "cypress-jogodomonstro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiaconBruno/Cypress-JogoDoMonstro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiaconBruno/Cypress-JogoDoMonstro/issues"
+  },
+  "homepage": "https://github.com/GiaconBruno/Cypress-JogoDoMonstro#readme",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}
