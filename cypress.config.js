@@ -5,6 +5,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    specPattern: 'cypress/integration/**/*.spec.{js,jsx,ts,tsx}'
+    specPattern: 'cypress/integration/**/*.spec.{js,jsx,ts,tsx}',
+    testIsolation: false,
   },
 });

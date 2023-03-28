@@ -1,0 +1,16 @@
+export default {
+  out: '.header button',
+  start: '.text-center>button',
+  personName: '.players:nth-child(1)>p',
+  personLife: '.players:nth-child(1)>div:not(.progress)',
+  monsterLife: '.players:nth-child(2)>div:not(.progress)',
+  statusGame: '.box.row>button',
+  btnAtk: '.col-sm-3:nth-child(1) button',
+  btnSkill: '.col-sm-3:nth-child(2) button',
+  btnHeal: '.col-sm-3:nth-child(3) button',
+  btnAuto: '.col-sm-3:nth-child(4) button',
+  btnDesist: '.col-sm-3:nth-child(5) button',
+  eventPerson: '.box>ul .jogador>strong:nth-child(1)',
+  eventMonster: '.box>ul .monster>strong:nth-child(2)',
+  eventHeal: '.box>ul .monster>strong:nth-child(2)',
+}

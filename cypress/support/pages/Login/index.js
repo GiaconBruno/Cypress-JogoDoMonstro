@@ -5,11 +5,11 @@ class Login {
     cy.visit('https://giaconbruno.github.io/Jogo-do-Monstro/')
   }
   Form() {
-    // cy.intercept();
     cy.PrepareUser();
-    cy.GenerateUser().then(() => {
+    cy.GenerateUser();
+    cy.wrap('@GenerateUser').then(() => {
       cy.get(el.name).type(Cypress.env('UserName'));
-      (Cypress.env('Sex') == 'H') ? cy.get(el.male).click() : cy.get(el.famele).click();
+      (Cypress.env('Sex') == 'H') ? cy.get(el.male).check() : cy.get(el.famele).check();
       cy.get(el.class).select(Cypress.env('Class'));
     });
   }

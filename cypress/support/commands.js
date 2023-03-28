@@ -24,7 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-const util = require('./utils.js')
+const util = require('./utils.js');
+const elBattle = require('./pages/Battle/elements');
 
 Cypress.Commands.add('PrepareUser', () => {
   Cypress.env('Sex', (util.random(0, 2)) ? 'H' : 'M');
@@ -65,5 +66,29 @@ Cypress.Commands.add('GenerateUser', () => {
     expect(res.status).to.eq(200);
     expect(res.body[0].nome).is.not.null;
     Cypress.env('UserName', (res.body[0].nome).split(' ')[0]);
+  });
+})
+
+Cypress.Commands.add('getDmgPerson', () => {
+  Cypress.env('DamageMonster', 0);
+  cy.get(elBattle.eventPerson).each(($el) => {
+    cy.get($el).invoke('text')
+      .then(text => Cypress.env('DamageMonster', parseInt(Cypress.env('DamageMonster')) + parseInt(text)))
+  });
+})
+
+Cypress.Commands.add('getDmgMonter', () => {
+  Cypress.env('DamagePerson', 0)
+  cy.get(elBattle.eventMonster).each(($el) => {
+    cy.get($el).invoke('text')
+      .then(text => Cypress.env('DamagePerson', parseInt(Cypress.env('DamagePerson')) + parseInt(text)))
+  });
+})
+
+Cypress.Commands.add('getHealPerson', () => {
+  Cypress.env('HealPerson', 0)
+  cy.get(elBattle.eventHeal).each(($el) => {
+    cy.get($el).invoke('text')
+      .then(text => Cypress.env('HealPerson', parseInt(Cypress.env('HealPerson')) + parseInt(text)))
   });
 })
