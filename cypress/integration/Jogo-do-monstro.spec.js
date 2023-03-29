@@ -26,13 +26,16 @@ describe('Jogo do Monstro', () => {
     Battle.BattleHeal();
   })
 
+  it('BattleStop', () => {
+    Battle.BattleStop();
+  })
+
   it('BattleAuto', () => {
     Battle.BattleAuto();
   })
 
-  it.skip('LogOut', () => {
+  it('LogOut', () => {
     Battle.LogOut();
   })
-
 
 })

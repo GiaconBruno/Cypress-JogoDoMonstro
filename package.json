@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "open": "npx cypress open"
+    "open": "npx cypress open --e2e --browser chrome"
   },
   "repository": {
     "type": "git",

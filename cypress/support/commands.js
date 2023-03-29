@@ -70,18 +70,18 @@ Cypress.Commands.add('GenerateUser', () => {
 })
 
 Cypress.Commands.add('getDmgPerson', () => {
-  Cypress.env('DamageMonster', 0);
+  Cypress.env('DamagePerson', 0);
   cy.get(elBattle.eventPerson).each(($el) => {
     cy.get($el).invoke('text')
-      .then(text => Cypress.env('DamageMonster', parseInt(Cypress.env('DamageMonster')) + parseInt(text)))
+      .then(text => Cypress.env('DamagePerson', parseInt(Cypress.env('DamagePerson')) + parseInt(text)))
   });
 })
 
 Cypress.Commands.add('getDmgMonter', () => {
-  Cypress.env('DamagePerson', 0)
+  Cypress.env('DamageMonster', 0)
   cy.get(elBattle.eventMonster).each(($el) => {
     cy.get($el).invoke('text')
-      .then(text => Cypress.env('DamagePerson', parseInt(Cypress.env('DamagePerson')) + parseInt(text)))
+      .then(text => Cypress.env('DamageMonster', parseInt(Cypress.env('DamageMonster')) + parseInt(text)))
   });
 })
 
@@ -91,4 +91,17 @@ Cypress.Commands.add('getHealPerson', () => {
     cy.get($el).invoke('text')
       .then(text => Cypress.env('HealPerson', parseInt(Cypress.env('HealPerson')) + parseInt(text)))
   });
+  // cy.get(elBattle.events).each(($el) => {
+  //   let dmg = 0;
+  //   cy.get($el).contains('de dano em').get('strong:nth-child(2)').invoke('text')
+  //     .then(vDmg => dmg += parseInt(vDmg));
+  //   cy.get($el).contains('curou').get('strong:nth-child(1)').invoke('text')
+  //     .then(vHeal => {
+  //       if (100 - dmg + parseInt(vHeal) <= 100) {
+  //         Cypress.env('HealPerson', parseInt(Cypress.env('HealPerson')) + parseInt(vHeal))
+  //       } else {
+  //         Cypress.env('HealPerson', parseInt(Cypress.env('HealPerson')) + Math.min(dmg, parseInt(vHeal)))
+  //       }
+  //     });
+  // });
 })
